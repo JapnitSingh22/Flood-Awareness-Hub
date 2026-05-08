@@ -1,0 +1,869 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flood Awareness & Information Hub</title>
+    <link rel="stylesheet" href="style.css">
+    
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <span>🌊</span>
+                <span>Flood Awareness Hub</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#safety">Safety Tips</a></li>
+                <li><a href="#preparedness">Preparedness</a></li>
+                <li><a href="#case-studies">Case Studies</a></li>
+                <li><a href="#emergency">Emergency</a></li>
+                <li><a href="#quiz">Quiz</a></li>
+                <li id="user-info"></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="hero" id="home">
+        <h1>Flood Awareness &amp; Safety Information</h1>
+        <p>Stay informed, stay prepared, stay safe. Your comprehensive guide to flood awareness and emergency preparedness.</p>
+    </div>
+
+    <div class="container">
+        <!-- About Floods Section -->
+        <section id="about">
+            <h2>Understanding Floods</h2>
+            
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-number">90%</div>
+                    <div class="stat-label">Of natural disaster losses caused by floods</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">6"</div>
+                    <div class="stat-label">Of water can knock you off your feet</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">12"</div>
+                    <div class="stat-label">Of water can sweep away most vehicles</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">24/7</div>
+                    <div class="stat-label">Floods can happen anytime</div>
+                </div>
+            </div>
+
+
+    <section id="weather-report">
+    <!-- WEATHER -->
+    <div class="feature-card">
+        <h2>🌦️ Live Weather & Flood Risk</h2>
+
+        <div class="input-group">
+            <input type="text" id="city" placeholder="Enter city (e.g., Delhi)">
+            <button onclick="getWeather()">Check</button>
+        </div>
+
+        <div id="weather-result"></div>
+    </div>
+
+    <!-- REPORT -->
+    <div class="feature-card">
+        <h2>📝 Report Flood Situation</h2>
+
+        <!-- <input type="text" id="name" placeholder="Your Name"> -->
+        <input type="text" id="location" placeholder="Your Location">
+        <textarea id="message" placeholder="Describe the situation"></textarea>
+
+        <button onclick="submitReport()">Submit Report</button>
+    </div>
+
+</section>
+
+<!-- REPORTS -->
+<section>
+    <h2>📋 Submitted Reports</h2>
+    <div id="reports"></div>
+</section>
+
+            <div class="cards-grid">
+                <div class="card">
+                    <div class="card-icon info">💧</div>
+                    <h3>What is a Flood?</h3>
+                    <p>A flood is an overflow of water that submerges land that is usually dry. Floods can occur from heavy rainfall, storm surges, rapid snowmelt, or dam failures.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon warning">⚡</div>
+                    <h3>Flash Floods</h3>
+                    <p>Rapid flooding of low-lying areas in less than 6 hours. Often caused by intense rainfall or dam failure. These are extremely dangerous with little warning time.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon info">🌊</div>
+                    <h3>River Floods</h3>
+                    <p>Occur when river levels rise and overflow their banks. Can develop slowly over days or weeks, providing more warning time for evacuation.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon danger">🌀</div>
+                    <h3>Coastal Floods</h3>
+                    <p>Caused by storm surges, hurricanes, or tsunamis. Coastal areas face rapid flooding when water levels rise quickly from ocean storms.</p>
+                </div>
+            </div>
+
+            <div class="info-box">
+                <h3>⚠️ Did You Know?</h3>
+                <p>Flooding can occur even outside designated flood zones. Urban areas are particularly vulnerable due to reduced water absorption from concrete surfaces and storm drain systems.</p>
+            </div>
+        </section>
+
+        <!-- Warning Signs Section -->
+        <section>
+            <h2>Warning Signs of a Flood</h2>
+            <div class="cards-grid">
+                <div class="card">
+                    <div class="card-icon danger">🌧️</div>
+                    <h3>Heavy Rainfall</h3>
+                    <p>Intense or prolonged rainfall is the primary cause of flooding. Monitor weather forecasts and warnings from local authorities.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon warning">📻</div>
+                    <h3>Official Warnings</h3>
+                    <p>Pay attention to flood watches (possible flooding) and flood warnings (flooding is occurring or imminent). Act immediately on warnings.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon danger">⬆️</div>
+                    <h3>Rising Water Levels</h3>
+                    <p>Monitor nearby streams, rivers, and drainage channels. Water levels can rise rapidly, especially in flash flood situations.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon warning">❄️</div>
+                    <h3>Snowmelt &amp; Ice Jams</h3>
+                    <p>Heavy spring rains on melting snow or ice jams breaking can cause sudden flooding. Be extra cautious during seasonal transitions.</p>
+                </div>
+            </div>
+
+            <div class="alert-box">
+                <h3>🚨 Critical Warning</h3>
+                <p><strong>Turn Around, Don't Drown!</strong> Never walk, swim, or drive through floodwater. Just 6 inches of fast-moving water can knock you down, and 12 inches can carry away most vehicles.</p>
+            </div>
+        </section>
+
+        <!-- Safety Tips Section -->
+        <section id="safety">
+            <h2>Flood Safety Guidelines</h2>
+            
+            <div class="tabs">
+                <button class="tab-btn active" onclick="showTab('before')">Before a Flood</button>
+                <button class="tab-btn" onclick="showTab('during')">During a Flood</button>
+                <button class="tab-btn" onclick="showTab('after')">After a Flood</button>
+            </div>
+
+            <div id="before-tab" class="tab-content active">
+                <div class="cards-grid">
+                    <div class="card">
+                        <div class="card-icon info">🗺️</div>
+                        <h3>Know Your Risk</h3>
+                        <ul>
+                            <li>Check if you live in a flood-prone area</li>
+                            <li>Learn your evacuation routes</li>
+                            <li>Know your evacuation zone</li>
+                            <li>Identify higher ground locations</li>
+                        </ul>
+                    </div>
+                    <div class="card">
+                        <div class="card-icon success">📦</div>
+                        <h3>Emergency Kit</h3>
+                        <ul>
+                            <li>Water (1 gallon per person per day)</li>
+                            <li>Non-perishable food (7-day supply)</li>
+                            <li>First aid kit and medications</li>
+                            <li>Battery-powered radio and flashlight</li>
+                            <li>Important documents in waterproof container</li>
+                        </ul>
+                    </div>
+                    <div class="card">
+                        <div class="card-icon warning">🏠</div>
+                        <h3>Protect Your Home</h3>
+                        <ul>
+                            <li>Install check valves in sewer traps</li>
+                            <li>Elevate electrical components</li>
+                            <li>Clean gutters and downspouts</li>
+                            <li>Consider flood insurance</li>
+                            <li>Seal basement walls</li>
+                        </ul>
+                    </div>
+                    <div class="card">
+                        <div class="card-icon info">👨‍👩‍👧‍👦</div>
+                        <h3>Family Plan</h3>
+                        <ul>
+                            <li>Create family communication plan</li>
+                            <li>Designate meeting locations</li>
+                            <li>Plan for pets and livestock</li>
+                            <li>Register for emergency alerts</li>
+                            <li>Practice evacuation routes</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div id="during-tab" class="tab-content">
+                <div class="cards-grid">
+                    <div class="card">
+                        <div class="card-icon danger">🏃</div>
+                        <h3>Evacuate Immediately</h3>
+                        <ul>
+                            <li>Follow evacuation orders without delay</li>
+                            <li>Move to higher ground immediately</li>
+                            <li>Don't wait for official instructions if in immediate danger</li>
+                            <li>Take your emergency kit</li>
+                        </ul>
+                    </div>
+                    <div class="card">
+                        <div class="card-icon danger">🚗</div>
+                        <h3>Never Drive Through Water</h3>
+                        <ul>
+                            <li>Turn around if you encounter flooded roads</li>
+                            <li>Don't drive around road barriers</li>
+                            <li>If trapped in vehicle, move to roof</li>
+                            <li>Abandon car if water is rising inside</li>
+                        </ul>
+                    </div>
+                    <div class="card">
+                        <div class="card-icon warning">⚡</div>
+                        <h3>Electrical Safety</h3>
+                        <ul>
+                            <li>Turn off electricity at main breaker</li>
+                            <li>Never touch electrical equipment when wet</li>
+                            <li>Assume downed power lines are live</li>
+                            <li>Stay away from water near electrical sources</li>
+                        </ul>
+                    </div>
+                    <div class="card">
+                        <div class="card-icon info">🏠</div>
+                        <h3>If Trapped at Home</h3>
+                        <ul>
+                            <li>Move to highest level (not attic without exit)</li>
+                            <li>Signal for help if needed</li>
+                            <li>Stay informed via battery radio</li>
+                            <li>Don't walk through moving water</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div id="after-tab" class="tab-content">
+                <div class="cards-grid">
+                    <div class="card">
+                        <div class="card-icon warning">⏰</div>
+                        <h3>Wait for All-Clear</h3>
+                        <ul>
+                            <li>Only return when authorities say it's safe</li>
+                            <li>Stay out of damaged buildings</li>
+                            <li>Avoid floodwater and standing water</li>
+                            <li>Watch for debris and hazards</li>
+                        </ul>
+                    </div>
+                    <div class="card">
+                        <div class="card-icon danger">🦠</div>
+                        <h3>Health Hazards</h3>
+                        <ul>
+                            <li>Floodwater may be contaminated</li>
+                            <li>Wash hands frequently</li>
+                            <li>Disinfect everything that got wet</li>
+                            <li>Watch for mold growth</li>
+                            <li>Seek medical attention for any wounds</li>
+                        </ul>
+                    </div>
+                    <div class="card">
+                        <div class="card-icon info">📸</div>
+                        <h3>Document Damage</h3>
+                        <ul>
+                            <li>Take photos/videos of all damage</li>
+                            <li>Contact insurance company</li>
+                            <li>Make list of damaged items</li>
+                            <li>Keep receipts for expenses</li>
+                        </ul>
+                    </div>
+                    <div class="card">
+                        <div class="card-icon success">🔧</div>
+                        <h3>Cleanup Safety</h3>
+                        <ul>
+                            <li>Wear protective clothing and gear</li>
+                            <li>Pump out water gradually (3ft per day)</li>
+                            <li>Air out and dry property</li>
+                            <li>Discard contaminated food</li>
+                            <li>Listen to water safety advisories</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Preparedness Checklist -->
+        <section id="preparedness">
+            <h2>Flood Preparedness Checklist</h2>
+            <div class="checklist">
+                <div class="checklist-item">
+                    <input type="checkbox" id="check1" onchange="toggleComplete(this)">
+                    <label for="check1">Learn if I live in a flood-prone area or evacuation zone</label>
+                </div>
+                <div class="checklist-item">
+                    <input type="checkbox" id="check2" onchange="toggleComplete(this)">
+                    <label for="check2">Purchase flood insurance (30-day waiting period)</label>
+                </div>
+                <div class="checklist-item">
+                    <input type="checkbox" id="check3" onchange="toggleComplete(this)">
+                    <label for="check3">Create family emergency communication plan</label>
+                </div>
+                <div class="checklist-item">
+                    <input type="checkbox" id="check4" onchange="toggleComplete(this)">
+                    <label for="check4">Assemble emergency kit with 7-day supplies</label>
+                </div>
+                <div class="checklist-item">
+                    <input type="checkbox" id="check5" onchange="toggleComplete(this)">
+                    <label for="check5">Store important documents in waterproof container</label>
+                </div>
+                <div class="checklist-item">
+                    <input type="checkbox" id="check6" onchange="toggleComplete(this)">
+                    <label for="check6">Identify evacuation routes and practice them</label>
+                </div>
+                <div class="checklist-item">
+                    <input type="checkbox" id="check7" onchange="toggleComplete(this)">
+                    <label for="check7">Register for emergency alerts from local authorities</label>
+                </div>
+                <div class="checklist-item">
+                    <input type="checkbox" id="check8" onchange="toggleComplete(this)">
+                    <label for="check8">Clean gutters and install check valves</label>
+                </div>
+                <div class="checklist-item">
+                    <input type="checkbox" id="check9" onchange="toggleComplete(this)">
+                    <label for="check9">Elevate electrical components and utilities</label>
+                </div>
+                <div class="checklist-item">
+                    <input type="checkbox" id="check10" onchange="toggleComplete(this)">
+                    <label for="check10">Keep battery-powered radio and flashlights ready</label>
+                </div>
+            </div>
+        </section>
+
+        <!-- Emergency Contacts -->
+        <section id="emergency">
+            <h2>Emergency Contacts</h2>
+            <div class="contacts-grid">
+                <div class="contact-card">
+                    <div class="contact-icon">🚨</div>
+                    <div class="contact-info">
+                        <h4>National Emergency</h4>
+                        <p>112</p>
+                    </div>
+                </div>
+                <div class="contact-card">
+                    <div class="contact-icon">🚑</div>
+                    <div class="contact-info">
+                        <h4>Ambulance</h4>
+                        <p>102</p>
+                    </div>
+                </div>
+                <div class="contact-card">
+                    <div class="contact-icon">🚒</div>
+                    <div class="contact-info">
+                        <h4>Fire Service</h4>
+                        <p>101</p>
+                    </div>
+                </div>
+                <div class="contact-card">
+                    <div class="contact-icon">👮</div>
+                    <div class="contact-info">
+                        <h4>Police</h4>
+                        <p>100</p>
+                    </div>
+                </div>
+                <div class="contact-card">
+                    <div class="contact-icon">🆘</div>
+                    <div class="contact-info">
+                        <h4>Disaster Management</h4>
+                        <p>1078</p>
+                    </div>
+                </div>
+                <div class="contact-card">
+                    <div class="contact-icon">⚠️</div>
+                    <div class="contact-info">
+                        <h4>NDRF Helpline</h4>
+                        <p>9711077372</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="info-box" style="margin-top: 2rem;">
+                <h3>📞 Important Reminder</h3>
+                <p>Save these emergency numbers in your phone. In a flood emergency, every second counts. Have local emergency management contacts readily available.</p>
+            </div>
+        </section>
+
+        <!-- Case Studies Section -->
+        <section id="case-studies">
+            <h2>Real-World Flood Case Studies</h2>
+            <p style="color: var(--color-text-light); margin-bottom: 2rem;">Learn from recent flood disasters and understand their impact, causes, and lessons learned.</p>
+            
+            <div class="cards-grid">
+                <div class="card">
+                    <div class="card-icon danger">📍</div>
+                    <h3>Punjab Floods - 2025</h3>
+                    <p><strong>Date:</strong> August 2025</p>
+                    <p><strong>Affected Areas:</strong> Multiple districts including Mohali, Patiala, and Rupnagar</p>
+                    <p><strong>Cause:</strong> Excessive monsoon rainfall combined with overflow from the Sutlej River and breaches in drainage systems</p>
+                    <p><strong>Impact:</strong></p>
+                    <ul>
+                        <li>Over 100,000 people evacuated</li>
+                        <li>Extensive crop damage across thousands of hectares</li>
+                        <li>Major disruption to transportation networks</li>
+                        <li>Damage to residential and commercial properties</li>
+                    </ul>
+                    <p><strong>Lessons Learned:</strong></p>
+                    <ul>
+                        <li>Importance of early warning systems</li>
+                        <li>Need for improved drainage infrastructure</li>
+                        <li>Critical role of timely evacuation</li>
+                        <li>Community preparedness saves lives</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <div class="card-icon danger">📍</div>
+                    <h3>Kerala Floods - 2018</h3>
+                    <p><strong>Date:</strong> August 2018</p>
+                    <p><strong>Affected Areas:</strong> 14 districts across Kerala state</p>
+                    <p><strong>Cause:</strong> Heaviest rainfall in nearly a century, combined with dam releases</p>
+                    <p><strong>Impact:</strong></p>
+                    <ul>
+                        <li>Over 400 lives lost</li>
+                        <li>1.4 million people displaced</li>
+                        <li>Economic losses exceeding ₹40,000 crores</li>
+                        <li>Complete submersion of multiple towns</li>
+                        <li>Landslides in hilly regions</li>
+                    </ul>
+                    <p><strong>Lessons Learned:</strong></p>
+                    <ul>
+                        <li>Climate change increases extreme weather events</li>
+                        <li>Deforestation and urbanization worsen flood impact</li>
+                        <li>Coordinated rescue operations are vital</li>
+                        <li>Social media can aid disaster response</li>
+                        <li>Need for sustainable development practices</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <div class="card-icon danger">📍</div>
+                    <h3>Uttarakhand Flash Floods - 2013</h3>
+                    <p><strong>Date:</strong> June 2013</p>
+                    <p><strong>Affected Areas:</strong> Kedarnath and surrounding Himalayan regions</p>
+                    <p><strong>Cause:</strong> Cloudburst and glacier lake bursts combined with massive rainfall</p>
+                    <p><strong>Impact:</strong></p>
+                    <ul>
+                        <li>Nearly 6,000 lives lost (presumed)</li>
+                        <li>Over 100,000 pilgrims stranded</li>
+                        <li>Complete destruction of Kedarnath town</li>
+                        <li>Roads, bridges, and buildings washed away</li>
+                        <li>Massive landslides blocked rivers</li>
+                    </ul>
+                    <p><strong>Lessons Learned:</strong></p>
+                    <ul>
+                        <li>Mountain regions face unique flood risks</li>
+                        <li>Unplanned construction increases vulnerability</li>
+                        <li>Flash floods provide minimal warning time</li>
+                        <li>Rescue operations in remote areas are challenging</li>
+                        <li>Environmental conservation is crucial</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="alert-box" style="margin-top: 2rem;">
+                <h3>🎓 Key Takeaway from Case Studies</h3>
+                <p>These disasters highlight the importance of preparation, early warning systems, and respecting nature. Climate change is making floods more frequent and severe. Communities must invest in infrastructure, maintain natural drainage systems, and have robust emergency response plans.</p>
+            </div>
+        </section>
+
+        <!-- Quiz Section -->
+        <section id="quiz">
+            <h2>Test Your Flood Safety Knowledge</h2>
+            <div class="quiz-container">
+                <form id="flood-quiz">
+                    <div class="question">
+                        <h4>1. How many inches of fast-moving water can knock you off your feet?</h4>
+                        <div class="options">
+                            <label class="option">
+                                <input type="radio" name="q1" value="a">
+                                <span>2 inches</span>
+                            </label>
+                            <label class="option">
+                                <input type="radio" name="q1" value="b">
+                                <span>6 inches</span>
+                            </label>
+                            <label class="option">
+                                <input type="radio" name="q1" value="c">
+                                <span>12 inches</span>
+                            </label>
+                            <label class="option">
+                                <input type="radio" name="q1" value="d">
+                                <span>24 inches</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="question">
+                        <h4>2. What should you do if you encounter a flooded road while driving?</h4>
+                        <div class="options">
+                            <label class="option">
+                                <input type="radio" name="q2" value="a">
+                                <span>Drive through it quickly</span>
+                            </label>
+                            <label class="option">
+                                <input type="radio" name="q2" value="b">
+                                <span>Turn around and find another route</span>
+                            </label>
+                            <label class="option">
+                                <input type="radio" name="q2" value="c">
+                                <span>Wait to see if it gets deeper</span>
+                            </label>
+                            <label class="option">
+                                <input type="radio" name="q2" value="d">
+                                <span>Test the depth with your vehicle</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="question">
+                        <h4>3. How many days of supplies should you have in your emergency kit?</h4>
+                        <div class="options">
+                            <label class="option">
+                                <input type="radio" name="q3" value="a">
+                                <span>1 day</span>
+                            </label>
+                            <label class="option">
+                                <input type="radio" name="q3" value="b">
+                                <span>3 days</span>
+                            </label>
+                            <label class="option">
+                                <input type="radio" name="q3" value="c">
+                                <span>7 days</span>
+                            </label>
+                            <label class="option">
+                                <input type="radio" name="q3" value="d">
+                                <span>30 days</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="question">
+                        <h4>4. What percentage of natural disaster losses are caused by floods?</h4>
+                        <div class="options">
+                            <label class="option">
+                                <input type="radio" name="q4" value="a">
+                                <span>50%</span>
+                            </label>
+                            <label class="option">
+                                <input type="radio" name="q4" value="b">
+                                <span>70%</span>
+                            </label>
+                            <label class="option">
+                                <input type="radio" name="q4" value="c">
+                                <span>90%</span>
+                            </label>
+                            <label class="option">
+                                <input type="radio" name="q4" value="d">
+                                <span>100%</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="question">
+                        <h4>5. When should you evacuate during a flood?</h4>
+                        <div class="options">
+                            <label class="option">
+                                <input type="radio" name="q5" value="a">
+                                <span>Only when water reaches your door</span>
+                            </label>
+                            <label class="option">
+                                <input type="radio" name="q5" value="b">
+                                <span>Immediately when authorities issue evacuation orders</span>
+                            </label>
+                            <label class="option">
+                                <input type="radio" name="q5" value="c">
+                                <span>After securing all your belongings</span>
+                            </label>
+                            <label class="option">
+                                <input type="radio" name="q5" value="d">
+                                <span>When your neighbors start leaving</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <button type="button" class="quiz-btn" onclick="checkQuiz()">Submit Quiz</button>
+                </form>
+
+                <div id="quiz-result" class="quiz-result"></div>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Flood Awareness Hub | BCA Minor Project | Stay Safe, Stay Informed</p>
+        <p style="margin-top: 0.5rem; font-size: 0.9rem;">Educational Project for Flood Awareness and Safety</p>
+    </footer>
+
+    <script>
+        // Tab Switching
+        function showTab(tabName) {
+            const tabs = document.querySelectorAll('.tab-content');
+            const buttons = document.querySelectorAll('.tab-btn');
+            
+            tabs.forEach(tab => tab.classList.remove('active'));
+            buttons.forEach(btn => btn.classList.remove('active'));
+            
+            document.getElementById(tabName + '-tab').classList.add('active');
+            event.target.classList.add('active');
+        }
+
+        // Checklist Toggle
+        function toggleComplete(checkbox) {
+            const item = checkbox.parentElement;
+            if (checkbox.checked) {
+                item.classList.add('completed');
+            } else {
+                item.classList.remove('completed');
+            }
+        }
+
+        // Quiz Functionality
+        function checkQuiz() {
+            const answers = {
+                q1: 'b', // 6 inches
+                q2: 'b', // Turn around
+                q3: 'c', // 7 days
+                q4: 'c', // 90%
+                q5: 'b'  // Immediately when ordered
+            };
+
+            let score = 0;
+            let totalQuestions = Object.keys(answers).length;
+
+            for (let question in answers) {
+                const selected = document.querySelector(`input[name="${question}"]:checked`);
+                if (selected && selected.value === answers[question]) {
+                    score++;
+                }
+            }
+
+            const resultDiv = document.getElementById('quiz-result');
+            const percentage = (score / totalQuestions) * 100;
+
+            if (percentage >= 80) {
+                resultDiv.className = 'quiz-result show pass';
+                resultDiv.innerHTML = `🎉 Excellent! You scored ${score}/${totalQuestions} (${percentage}%).<br>You have a great understanding of flood safety!`;
+            } else if (percentage >= 60) {
+                resultDiv.className = 'quiz-result show pass';
+                resultDiv.innerHTML = `✅ Good job! You scored ${score}/${totalQuestions} (${percentage}%).<br>Review the safety tips to improve your knowledge.`;
+            } else {
+                resultDiv.className = 'quiz-result show fail';
+                resultDiv.innerHTML = `⚠️ You scored ${score}/${totalQuestions} (${percentage}%).<br>Please review the flood safety information carefully. Your safety depends on it!`;
+            }
+
+            resultDiv.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+
+                fetch("save_quiz.php", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/x-www-form-urlencoded"
+        },
+        body: `score=${score}`
+    })
+    .then(res => res.text())
+    .then(data => {
+        if (data === "not_logged_in") {
+            alert("Please login first!");
+            window.location.href = "login.html";
+        } else if (data === "saved") {
+            console.log("Quiz saved in DB");
+        } else {
+            console.log("Error saving quiz");
+        }
+    });
+
+        }
+
+        // Smooth Scrolling for Navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        
+        function getWeather() {
+    let city = document.getElementById("city").value;
+
+    let apiKey = "439ae90648a909f253d4f5c959753eb0"; 
+
+    let url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${apiKey}`;
+
+    fetch(url)
+    .then(response => response.json())
+    .then(data => {
+        if (data.cod === 200) {
+            let temp = data.main.temp;
+            let weather = data.weather[0].main;
+
+            let risk = "";
+
+            // Simple flood risk logic
+            if (weather.toLowerCase().includes("rain")) {
+                risk = "⚠️ High Flood Risk";
+            } else {
+                risk = "✅ Low Flood Risk";
+            }
+
+            document.getElementById("weather-result").innerHTML =
+                `🌡️ Temp: ${temp}°C <br> ☁️ Weather: ${weather} <br> ${risk}`;
+        } else {
+            document.getElementById("weather-result").innerHTML = "City not found!";
+        }
+    })
+    .catch(() => {
+        document.getElementById("weather-result").innerHTML = "Error fetching data!";
+    });
+}
+
+function submitReport() {
+    let location = document.getElementById("location").value;
+    let message = document.getElementById("message").value;
+
+    fetch("save_report.php", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/x-www-form-urlencoded"
+        },
+        body: `location=${location}&message=${message}`
+    })
+    .then(res => res.text())
+    .then(data => {
+        if (data === "not_logged_in") {
+            alert("Please login first!");
+            window.location.href = "login.html";
+        } else {
+            alert("Report submitted!");
+            location.reload();
+        }
+    });
+}
+
+function displayReports() {
+    let reports = JSON.parse(localStorage.getItem("reports")) || [];
+
+    let output = "";
+
+    reports.forEach((r, index) => {
+        output += `
+            <div class="report-card">
+                <strong>${r.name}</strong> (${r.location})<br>
+                ${r.message}<br><br>
+                <button onclick="deleteReport(${index})">Delete</button>
+            </div>
+        `;
+    });
+
+    document.getElementById("reports").innerHTML = output;
+}
+
+function deleteReport(id) {
+    fetch("delete_report.php", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/x-www-form-urlencoded"
+        },
+        body: `id=${id}`
+    })
+    .then(res => res.text())
+    .then(data => {
+        if (data === "deleted") {
+            alert("Report deleted");
+            location.reload();
+        } else {
+            alert("Error deleting");
+        }
+    });
+}
+
+// Load reports when page opens
+window.onload = displayReports;
+
+function signup() {
+    let name = document.getElementById("name").value;
+    let email = document.getElementById("email").value;
+    let password = document.getElementById("password").value;
+
+    fetch("signup.php", {
+        method: "POST",
+        headers: {"Content-Type": "application/x-www-form-urlencoded"},
+        body: `name=${name}&email=${email}&password=${password}`
+    })
+    .then(res => res.text())
+    .then(data => alert(data));
+}
+
+function login() {
+    let email = document.getElementById("email").value;
+    let password = document.getElementById("password").value;
+
+    fetch("login.php", {
+        method: "POST",
+        headers: {"Content-Type": "application/x-www-form-urlencoded"},
+        body: `email=${email}&password=${password}`
+    })
+    .then(res => res.text())
+    .then(data => alert(data));
+}
+
+
+fetch("check_login.php")
+.then(res => res.text())
+.then(data => {
+    data = data.trim();
+
+    if (data === "not_logged_in") {
+        document.getElementById("user-info").innerHTML =
+            '<a href="login.html">Login / Signup</a>';
+    } else {
+        let firstName = data.split(" ")[0];
+
+        document.getElementById("user-info").innerHTML =
+            `👤 Hello, ${firstName} | <a href="#" onclick="logout()">Logout</a>`;
+    }
+});
+
+function logout() {
+    fetch("logout.php")
+    .then(res => res.text())
+    .then(() => {
+        window.location.reload(); // refresh page
+    });
+}
+
+fetch("get_reports.php")
+.then(res => res.text())
+.then(data => {
+    document.getElementById("reports").innerHTML = data;
+});
+
+    </script>
+
+</body>
+</html>

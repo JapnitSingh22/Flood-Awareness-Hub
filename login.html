@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<section id="auth-section">
+    <div class="auth-card">
+        <h2> Login / Signup</h2>
+
+        <input type="text" id="name" placeholder="Full Name (Signup only)">
+        <input type="email" id="email" placeholder="Email">
+        <input type="password" id="password" placeholder="Password">
+
+        <div class="auth-buttons">
+            <button onclick="signup()">Signup</button>
+            <button onclick="login()" class="login-btn">Login</button>
+        </div>
+    </div>
+</section>
+
+<script>
+function signup() {
+    let name = document.getElementById("name").value;
+    let email = document.getElementById("email").value;
+    let password = document.getElementById("password").value;
+
+    fetch("signup.php", {
+        method: "POST",
+        headers: {"Content-Type": "application/x-www-form-urlencoded"},
+        body: `name=${name}&email=${email}&password=${password}`
+    })
+    .then(res => res.text())
+    .then(data => {
+        alert(data);
+        window.location.href = "index.html"; // redirect back
+    });
+}
+
+function login() {
+    let email = document.getElementById("email").value;
+    let password = document.getElementById("password").value;
+
+    fetch("login.php", {
+        method: "POST",
+        headers: {"Content-Type": "application/x-www-form-urlencoded"},
+        body: `email=${email}&password=${password}`
+    })
+    .then(res => res.text())
+    .then(data => {
+        alert(data);
+        if (data.includes("successful")) {
+            window.location.href = "index.html"; // go back after login
+        }
+    });
+}
+</script>
+
+</body>
+</html>
